@@ -6,9 +6,7 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.boot.autoconfigure.liquibase.LiquibaseAutoConfiguration;
 import org.springframework.boot.autoconfigure.sql.init.SqlInitializationAutoConfiguration;
 
-@SpringBootApplication(exclude={
-		LiquibaseAutoConfiguration.class
-})
+@SpringBootApplication()
 public class SecurityApplication {
 
 	public static void main(String[] args) {

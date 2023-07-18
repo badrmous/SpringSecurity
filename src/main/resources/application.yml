@@ -1,20 +1,6 @@
+  server:
+    port: 8081
   spring:
-    main:
-      web-application-type: none
-      allow-bean-definition-overriding: true
-    profiles:
-      # The commented value for `active` can be replaced with valid Spring profiles to load.
-      # Otherwise, it will be filled in by maven when building the JAR file
-      # Either way, it can be overridden by `--spring.profiles.active` value passed in the commandline or `-Dspring.profiles.active` set in `JAVA_OPTS`
-      active: dev
-      group:
-        dev:
-          - dev
-          - api-docs
-    liquibase:
-      enabled: false
-    jmx:
-      enabled: false
     data:
       jpa:
         repositories:
@@ -25,93 +11,15 @@
       username: postgres
       password: admin
       driver-class-name: org.postgresql.Driver
-      hikari:
-        minimum-idle: 90
-        maximum-pool-size: 90
     jpa:
       hibernate:
         ddl-auto: update
-      naming:
-        #        physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
-        implicit-strategy: org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
       show-sql: false
       open-in-view: false
 
       properties:
         hibernate:
           format_sql: true
-        hibernate.jdbc.time_zone: UTC
-        hibernate.id.new_generator_mappings: true
-        hibernate.cache.use_second_level_cache: false
-        hibernate.cache.use_query_cache: false
-        hibernate.generate_statistics: false
-        # modify batch size as necessary
-        hibernate.jdbc.batch_size: 100
-        hibernate.order_inserts: true
-        hibernate.order_updates: true
-        hibernate.query.fail_on_pagination_over_collection_fetch: true
-        hibernate.query.in_clause_parameter_padding: true
       database: postgresql
       database-platform: org.hibernate.dialect.PostgreSQLDialect
-
-    servlet:
-      multipart:
-        max-file-size: 100MB
-        max-request-size: 150MB
-    task:
-      scheduling:
-        pool:
-          size: 1
-    messages:
-      cache-duration: PT1S # 1 second, see the ISO 8601 standard
-    thymeleaf:
-      cache: false
-
-
-  springdoc:
-    swagger-ui:
-      path: /swagger-ui.html
-      operations-sorter: alpha
-      disable-swagger-default-url: true
-      enabled: false
-    api-docs:
-      path: /docs
-      enabled: false
-
-  logging:
-    level:
-      org.hibernate.SQL: INFO
-      org.springframework.jdbc.core: INFO
-
-  code:
-    expiration:
-      time: 60000
-
-  threads:
-    amount:
-      excel: 1000
-
-  token:
-    accountManager:
-      expiration:
-        time:
-          ms: 7776000000
-    admin:
-      expiration:
-        time:
-          ms: 86400000
-      remember:
-        expiration:
-          time:
-            ms: 2592000000
-    expiration:
-      time:
-        sec: 1440
-
-  driver: org.postgresql.Driver
-  url: ${spring.datasource.url}
-  verbose: true
-  dropFirst: false
-  username: ${spring.datasource.username}
-  password: ${spring.datasource.password}
 

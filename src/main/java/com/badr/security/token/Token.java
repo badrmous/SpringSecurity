@@ -28,4 +28,12 @@ public class Token {
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
+
+    public Boolean isExpired() {
+        return expired;
+    }
+
+    public Boolean isRevoked() {
+        return revoked;
+    }
 }
