@@ -23,3 +23,10 @@
       database: postgresql
       database-platform: org.hibernate.dialect.PostgreSQLDialect
 
+  application:
+    security:
+      jwt:
+        secrte-key: vL8JKwMLryIpsu1LcR93aeTbU2ftmdN8GfqClMu1Xhg=
+        expiration : 86400000 #day
+        refresh-token:
+          expiration: 604800000 # 7 days
