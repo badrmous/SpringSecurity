@@ -1,5 +1,6 @@
 package com.badr.security.auth;
 
+import com.badr.security.user.Role;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -18,5 +19,7 @@ public class RegisterRequest {
     private String email;
 
     private String password;
+
+    private Role role;
 
 }
